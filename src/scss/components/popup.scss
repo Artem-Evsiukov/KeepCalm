@@ -1,4 +1,3 @@
-
 .overlay {
   //opacity: 0;
   position: fixed;
@@ -8,7 +7,7 @@
   left: 0;
   z-index: 9;
   //z-index: -1;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: $base-color;
   transition: opacity 0.5s ease;
   display: none;
   &.active {
@@ -18,23 +17,19 @@
     transition: opacity 0.5s ease; */
   }
 }
+
 .popup {
   position: fixed;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -45%);
+  transform: translateX(-50%);
   //z-index: -3;
   z-index: 99;
-  padding: 0 15px;
   width: 100%;
-  max-width: 320px;
-  //opacity: 0;
+  height: 100%;
+  //opacity: 0
   transition: opacity 0.5s ease;
   display: none;
-
-  @include media(">=tablet") {
-    max-width: 590px;
-  }
 
   &.active {
     display: block;
@@ -44,41 +39,85 @@
     transition: opacity 0.5s ease;
   }
   &__wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: $white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 30px;
-    min-height: 220px;
-    @include media(">=tablet") {
-      min-height: 380px;
+    height: 90%;
+    width: 100%;
+    background-color: $base-color;
+    @include media('>=desktop') {
+    }
+    @include media('>=widescreen') {
+      height: 87%;
+      width: 75%;
     }
   }
   &__close {
     position: absolute;
-    right: 39px;
-    top: 13px;
+    right: 28px;
+    top: 11px;
     z-index: 999;
-    @include media(">=tablet") {
-      right: 49px;
-      top: 23px;
+
+    @include media('>=desktop') {
+      right: 26px;
+      top: 24px;
     }
     &:before,
     &:after {
       position: absolute;
       left: 0;
-      content: " ";
-      height: 20px;
+      content: ' ';
+      height: 22px;
       width: 2px;
-      background-color: #333;
+      background-color: $white;
     }
     &:before {
       transform: rotate(45deg);
     }
     &:after {
       transform: rotate(-45deg);
+    }
+  }
+  &__navig {
+    position: absolute;
+    padding: 0.8rem 1.1rem;
+    max-width: 60px;
+    width: 100%;
+    height: 30px;
+    background-color: $base-color;
+    z-index: 1;
+    bottom: 14.5%;
+    right: 20px;
+    @include media('>=desktop') {
+      right: 0;
+      height: 70px;
+      max-width: 135px;
+      padding: 2.3rem 3.2rem;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      height: 25px;
+      margin: 0 -10px;
+      transform: translateY(-50%);
+      @include media('>=desktop') {
+        height: auto;
+        margin: 0;
+      }
+      &::after {
+        color: $white;
+        font-size: 10px;
+        @include media('>=desktop') {
+          font-size: 24px;
+        }
+      }
     }
   }
 }

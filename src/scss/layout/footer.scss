@@ -1,3 +1,17 @@
 .footer {
   padding: 2rem 0;
+  background-color: $base-color;
+  padding: 15rem 0 1.8rem;
+
+  &__wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__copyright {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: $white;
+  }
 }

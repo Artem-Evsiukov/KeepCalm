@@ -1,0 +1,6 @@
+.tabs-section {
+  padding: 3rem 0 8rem;
+  @include media('>=tablet') {
+    padding: 8.2rem 0;
+  }
+}
